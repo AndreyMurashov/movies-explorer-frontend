@@ -1,24 +1,27 @@
-import './Main.css';
-import { Route, Switch } from 'react-router-dom';
-import AboutProject from './AboutProject/AboutProject'
-import AboutMe from './AboutMe/AboutMe'
-import Movies from '../Movies/Movies'
-import SavedMovies from '../SavedMovies/SavedMovies'
-import Login from '../Login/Login'
-import Register from '../Register/Register.js'
+import "./Main.css";
+import Header from "../Header/Header";
 
-function Main() {
+import Promo from "./Promo/Promo";
+import NavTab from "./NavTab/NavTab";
+import AboutProject from "./AboutProject/AboutProject";
+import Techs from "./Techs/Techs";
+import AboutMe from "./AboutMe/AboutMe";
+import Footer from "../Footer/Footer";
+
+function Main(props) {
   return (
     <div className="Main">
-      <Switch>
-        <Route path='/movies'><Movies /></Route>
-        <Route path='/saved-movies'><SavedMovies /></Route>
-        <Route path='/profile'><AboutMe /></Route>
-        <Route path='/signup'><Register /></Route>
-        <Route path='/signin'><Login /></Route>
-        <Route exact path='/'><AboutProject /></Route>
-      </Switch>
-  
+      <Header
+        background="#073042"
+        loggedIn={props.loggedIn}
+        isOpen={props.openPopupMenu}
+      />
+      <Promo />
+      <NavTab />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Footer />
     </div>
   );
 }
