@@ -4,11 +4,11 @@ import { filmsList } from "../../../utils/tempDB/films";
 
 function MoviesCardList(props) {
   return (
-    <div className="MoviesCardList">
+    <section className="MoviesCardList">
       {filmsList.map((card) => {
         return <MoviesCard key={card._id} card={card} />;
       })}
-    </div>
+    </section>
   );
 }
 

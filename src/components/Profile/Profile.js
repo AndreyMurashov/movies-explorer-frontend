@@ -10,7 +10,7 @@ function Profile(props) {
         loggedIn={props.loggedIn}
         isOpen={props.openPopupMenu}
       />
-      <div className="Profile">
+      <main className="Profile">
         <div className="Profile__top">
           <h1 className="Profile__title">Привет, Виталий!</h1>
           <form className="Profile__form" action="#">
@@ -40,7 +40,7 @@ function Profile(props) {
             <p className="Profile__error Profile__error_hidden">Текст ошибки</p>
 
             <div className="Profile__button-block-default #Profile__button-block-default_hidden">
-              <button className="Profile__button Profile__button_redact">
+              <button type="button" className="Profile__button Profile__button_redact">
                 Редактировать
               </button>
               <br />
@@ -48,12 +48,12 @@ function Profile(props) {
                 Выйти из аккаунта
               </Link>
             </div>
-            <button className="Profile__button-save Profile__button-save_hidden">
+            <button type="submit" className="Profile__button-save Profile__button-save_hidden">
               Сохранить
             </button>
           </form>
         </div>
-      </div>
+      </main>
     </>
   );
 }

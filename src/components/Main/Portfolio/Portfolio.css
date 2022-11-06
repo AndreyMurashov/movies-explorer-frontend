@@ -14,13 +14,23 @@
   margin-bottom: 50px;
 }
 
+.Portfolio__site-list {
+  padding: 0;
+  margin: 0;
+}
+
 .Portfolio__line {
   display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
   border-bottom: 1px solid #424242;
   padding-bottom: 19px;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .Portfolio__line:hover {
@@ -34,18 +44,20 @@
 }
 
 .Portfolio__site-type {
+  padding: 0;
+  margin-right: auto;
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
-  width: 880px;
+  /* width: 880px; */
   height: 50px;
   letter-spacing: -0.04em;
-
   color: #ffffff;
 }
 
 .Portfolio__site-link {
+  margin-left: auto;
   width: 30px;
   text-align: center;
   font-style: normal;
@@ -90,7 +102,6 @@
   .Portfolio__title {
     font-size: 14px;
     margin-bottom: 40px;
-    align-self: ;
   }
 
   .Portfolio__site-type {

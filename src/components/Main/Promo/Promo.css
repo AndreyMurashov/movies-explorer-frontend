@@ -42,7 +42,7 @@
 @media screen and (max-width: 345px) {
   .Promo {
     height: 570px;
-    max-width: 320px;
+    max-width: 100%;
   }
 
   .Promo__logo {

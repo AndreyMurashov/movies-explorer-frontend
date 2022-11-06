@@ -150,13 +150,13 @@
   .AboutProject__body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
   }
 
   .AboutProject__column {
-    max-width: 255px;
+    max-width: 100%;
     min-width: 245px;
+    margin: auto;
   }
 
   .AboutProject__column-top {

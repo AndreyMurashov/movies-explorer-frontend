@@ -15,7 +15,7 @@ const Header = (props) => {
   return (
     <header className="Header" style={back}>
       <NavLink className="Header__logo" to="/">
-        <img className="Header__logo-round" src={logoRound} alt="" />
+        <img className="Header__logo-round" src={logoRound} alt="logo" />
         <img className="Header__logo-smile" src={logoSmile} alt="logo" />
       </NavLink>
       {props.loggedIn ? (
@@ -41,13 +41,14 @@ const Header = (props) => {
             >
               Аккаунт
               <span className="Header__account-round">
-                <img className="Header__account-icon" src={iconAcount} alt="" />
+                <img className="Header__account-icon" src={iconAcount} alt="icon" />
               </span>
             </NavLink>
           </div>
 
           <div className="Header__slim-screen">
             <button
+              type="button"
               className="Header__hidden-menu-button"
               style={back}
               onClick={props.isOpen}

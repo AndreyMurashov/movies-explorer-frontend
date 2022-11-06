@@ -1,32 +1,35 @@
 import "./Footer.css";
-import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="Footer">
+    <footer className="Footer">
       <p className="Footer__top">Учебный проект Яндекс.Практикум и BestFilm.</p>
       <div className="Footer__bottom">
         <span className="Footer__year">&copy; 2022</span>
         <ul className="Footer__links">
           <li className="Footer__link">
-            <NavLink
+            <a
               className="Footer__link-text"
-              to="https://practicum.yandex.ru"
+              href="https://practicum.yandex.ru"  
+              target="_blank"
+              rel='noreferrer'
             >
               Яндекс.Практикум
-            </NavLink>
+            </a>
           </li>
           <li className="Footer__link">
-            <NavLink
+            <a
               className="Footer__link-text"
-              to="https://github.com/Github"
+              href="https://github.com/Github"  
+              target="_blank"
+              rel='noreferrer'
             >
               Github
-            </NavLink>
+            </a>
           </li>
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }
 

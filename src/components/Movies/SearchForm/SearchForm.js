@@ -3,7 +3,7 @@ import lupa from "../../../images/find__icon.svg";
 
 function SearchForm() {
   return (
-    <div className="SearchForm">
+    <section className="SearchForm">
       <form className="SearchForm__form">
         <input
           className="SearchForm__input"
@@ -11,7 +11,7 @@ function SearchForm() {
           placeholder="Фильм"
           required
         />
-        <button className="SearchForm__button" type="button">
+        <button className="SearchForm__button" type="submit">
           <img className="SearchForm__button-lupa" src={lupa} alt="@" />
         </button>
         <fieldset className="SearchForm__short-range">
@@ -29,7 +29,7 @@ function SearchForm() {
         </fieldset>
       </form>
       <div className="SearchForm__line"></div>
-    </div>
+    </section>
   );
 }
 

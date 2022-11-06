@@ -7,7 +7,7 @@
 }
 
 .NavTab__menu {
-  width: 310px;
+  width: 350px;
   margin: auto;
   display: grid;
   gap: 40px;
@@ -23,6 +23,8 @@
 .NavTab__menu-text {
   color: white;
   font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;

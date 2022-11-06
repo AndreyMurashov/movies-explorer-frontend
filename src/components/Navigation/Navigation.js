@@ -6,11 +6,11 @@ import iconAcount from "../../images/icon-account.svg";
 
 function Navigation(props) {
   return (
-    <div className={`Navigation ${props.isOpen ? "Navigation__opened" : ""}`}>
+    <section className={`Navigation ${props.isOpen ? "Navigation__opened" : ""}`}>
       <div className="Navigation__list">
-        <button className="Navigation__close" onClick={props.onClose}>
-          <img className="Navigation__close-img" src={closeButton} alt="" />
-          <img className="Navigation__close-img" src={closeButtonLeft} alt="" />
+        <button type="button" className="Navigation__close" onClick={props.onClose}>
+          <img className="Navigation__close-img" src={closeButton} alt="/" />
+          <img className="Navigation__close-img" src={closeButtonLeft} alt="\" />
         </button>
 
         <div className="Navigation__links">
@@ -41,13 +41,13 @@ function Navigation(props) {
               <img
                 className="Navigation__account-icon"
                 src={iconAcount}
-                alt=""
+                alt="account"
               />
             </span>
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

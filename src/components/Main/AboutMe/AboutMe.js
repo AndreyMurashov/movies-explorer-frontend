@@ -1,11 +1,10 @@
-import { NavLink } from "react-router-dom";
 import "./AboutMe.css";
 import Portfolio from "../Portfolio/Portfolio";
 import myPhoto from "../../../images/me.jpg";
 
 function AboutMe() {
   return (
-    <div className="AboutMe">
+    <section className="AboutMe">
       <h2 className="AboutMe__title">Студент</h2>
       <img className="AboutMe__photo" src={myPhoto} alt="Фото" />
       <p className="AboutMe__name">Андрей</p>
@@ -17,11 +16,11 @@ function AboutMe() {
         углубить знание изученного, а также начать осваивать новые фреймфорки
         (Vue и Angular) и языки (PHP, Phyton).
       </p>
-      <NavLink to="https://github.com/AndreyMurashov" className="AboutMe__link">
+      <a href="https://github.com/AndreyMurashov" className="AboutMe__link" target="_blank" rel='noreferrer'>
         Github
-      </NavLink>
+      </a>
       <Portfolio />
-    </div>
+    </section>
   );
 }
 

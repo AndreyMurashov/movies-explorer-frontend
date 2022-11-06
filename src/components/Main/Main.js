@@ -10,19 +10,21 @@ import Footer from "../Footer/Footer";
 
 function Main(props) {
   return (
-    <div className="Main">
+    <>
       <Header
         background="#073042"
         loggedIn={props.loggedIn}
         isOpen={props.openPopupMenu}
       />
-      <Promo />
-      <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main className="Main">
+        <Promo />
+        <NavTab />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

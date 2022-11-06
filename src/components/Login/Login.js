@@ -5,7 +5,7 @@ import logoSmile from "../../images/logo__COLOR_main-smile.svg";
 
 function Login(props) {
   return (
-    <div className="Login">
+    <section className="Login">
       <div className="Login__top">
         <Link className="Login__logo" to="/">
           <img className="Login__logo-round" src={logoRound} alt="logo" />
@@ -46,7 +46,7 @@ function Login(props) {
             Что-то пошло не так...
           </p>
           <fieldset className="Login__buttons">
-            <button className="Login__button">Войти</button>
+            <button type="submit" className="Login__button">Войти</button>
             <p className="Login__text">
               Еще не зарегистрированы?
               <Link className="Login__link" to="/signup">
@@ -56,7 +56,7 @@ function Login(props) {
           </fieldset>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

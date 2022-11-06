@@ -5,7 +5,7 @@ import logoSmile from "../../images/logo__COLOR_main-smile.svg";
 
 function Register(props) {
   return (
-    <div className="Register">
+    <section className="Register">
       <div className="Register__top">
         <Link className="Register__logo" to="/">
           <img className="Register__logo-round" src={logoRound} alt="logo" />
@@ -60,7 +60,7 @@ function Register(props) {
           </fieldset>
           <p className="Register__validation">Что-то пошло не так...</p>
           <fieldset className="Register__buttons">
-            <button className="Register__button">Зарегистрироваться</button>
+            <button type="submit" className="Register__button">Зарегистрироваться</button>
             <p className="Register__text">
               Уже зарегистрированы?
               <Link className="Regisler__link" to="/signin">
@@ -70,7 +70,7 @@ function Register(props) {
           </fieldset>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

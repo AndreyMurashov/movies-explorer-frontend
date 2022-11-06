@@ -75,7 +75,7 @@
   top: 226px;
   width: 270px;
   height: 327px;
-  object-fit: scale-down;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 10px;
 }

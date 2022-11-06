@@ -8,18 +8,20 @@ const MoviesCardList = lazy(() => import("./MoviesCardList/MoviesCardList"));
 
 function Movies(props) {
   return (
-    <div className="Movies">
-      <Header
+    <>
+    <Header
         background="#202020"
         loggedIn={props.loggedIn}
         isOpen={props.openPopupMenu}
       />
-      <SearchForm />
-      <Suspense fallback={<Preloader />}>
-        <MoviesCardList />
-      </Suspense>
+      <main className="Movies">
+        <SearchForm />
+        <Suspense fallback={<Preloader />}>
+          <MoviesCardList />
+        </Suspense>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 

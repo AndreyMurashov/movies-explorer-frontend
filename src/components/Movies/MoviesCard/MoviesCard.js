@@ -6,20 +6,20 @@ function MoviesCard(props) {
   const min = props.card.duration % 60;
 
   return (
-    <div className="MoviesCard">
+    <section className="MoviesCard">
       <img
         className="MoviesCard__image"
         src={`${props.card.thumbnail}`}
-        alt="#"
+        alt="movies cadr"
       />
       <div className="MoviesCard__capture">
         <p className="MoviesCard__title">{props.card.nameRU}</p>
-        <button className="MoviesCard__like">
-          <img className="MoviesCard__like-icon" src={like} alt="" />
+        <button type="button" className="MoviesCard__like">
+          <img className="MoviesCard__like-icon" src={like} alt="like" />
         </button>
       </div>
       <span className="MoviesCard__duration">{`${chas} ч ${min} м`}</span>
-    </div>
+    </section>
   );
 }
 

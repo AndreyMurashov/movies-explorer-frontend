@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function NavTab() {
   return (
-    <div className="NavTab">
+    <section className="NavTab">
       <ul className="NavTab__menu">
         <li className="NavTab__menu-link">
           <NavLink
@@ -24,7 +24,7 @@ function NavTab() {
           </NavLink>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }
 
