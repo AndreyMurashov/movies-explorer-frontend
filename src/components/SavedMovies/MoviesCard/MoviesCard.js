@@ -7,18 +7,21 @@ function MoviesCard(props) {
 
   return (
     <section className="MoviesCard">
-      <img
-        className="MoviesCard__image"
-        src={`${props.card.thumbnail}`}
-        alt="movies cadr"
-      />
-      <div className="MoviesCard__capture">
-        <p className="MoviesCard__title">{props.card.nameRU}</p>
-        <button type="button" className="MoviesCard__remove">
-          <img className="MoviesCard__remove-icon" src={remove} alt="remove" />
-        </button>
-      </div>
-      <span className="MoviesCard__duration">{`${chas} ч ${min} м`}</span>
+      <a href={props.card.trailerLink}  target="_blank" rel="noreferrer">
+          <img
+          className="MoviesCard__image"
+          src={`${props.card.thumbnail}`}
+          alt="movies cadr"
+        />
+        <div className="MoviesCard__capture">
+          <p className="MoviesCard__title">{props.card.nameRU}</p>
+          <button type="button" className="MoviesCard__remove">
+            <img className="MoviesCard__remove-icon" src={remove} alt="remove" />
+          </button>
+        </div>
+        <span className="MoviesCard__duration">{`${chas} ч ${min} м`}</span>
+      </a>
+      
     </section>
   );
 }

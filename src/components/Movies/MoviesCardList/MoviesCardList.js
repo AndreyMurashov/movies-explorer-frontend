@@ -1,13 +1,13 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import { filmsList } from "../../../utils/tempDB/films";
 
 function MoviesCardList(props) {
+  // console.log(props);
   return (
     <section>
       <ul className="MoviesCardList">
-        {filmsList.map((card) => {
-          return <li><MoviesCard key={card._id} card={card} /></li>;
+        {props.cards.map((card) => {
+          return <li><MoviesCard key={card.id} card={card} /></li>;
         })}
       </ul>
       <div className="MoviesCardList__continue">

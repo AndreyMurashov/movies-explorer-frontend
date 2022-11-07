@@ -89,10 +89,6 @@
   border: none;
 }
 
-.Login__input::placeholder {
-  color: white;
-}
-
 .Login__validation {
   height: 12px;
   padding: 0;
