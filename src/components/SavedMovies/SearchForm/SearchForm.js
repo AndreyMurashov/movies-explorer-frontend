@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 function SearchForm(props) {
   const [keywords, setKeywords] = useState();
   const [isSearchText, setIsSearchText] = useState(true);
-  const [rangeValue, setRangeValue] = useState("");
+  const [rangeValue, setRangeValue] = useState("0");
 
   function changeValue(e) {
     setKeywords(e.target.value);
@@ -36,11 +36,6 @@ function SearchForm(props) {
     props.findFilms(rangeValue, keywords);
   }, [rangeValue]);
 
-  useEffect(() => {
-    setRangeValue(localStorage.getItem("shortFilms"));
-    setKeywords(localStorage.getItem("inputText"));
-  }, []);
-
   return (
     <section className="SearchForm">
       <form className="SearchForm__form">
@@ -48,7 +43,7 @@ function SearchForm(props) {
           <input
             className="SearchForm__input"
             placeholder="Нужно ввести ключевое слово"
-            defaultValue={keywords}
+            value={keywords}
             onChange={changeValue}
             style={{ border: " 1px solid red" }}
             required
@@ -60,7 +55,7 @@ function SearchForm(props) {
             maxLength="30"
             type="text"
             placeholder="Фильм"
-            defaultValue={keywords}
+            value={keywords}
             onChange={changeValue}
             required
           />
@@ -84,10 +79,11 @@ function SearchForm(props) {
           <input
             className="SearchForm__range"
             type="range"
+            value={rangeValue}
             min="0"
             max="1"
             step="1"
-            defaultValue={rangeValue}
+            // defaultValue={rangeValue}
             id="short-films"
             onChange={shortFilms}
           />

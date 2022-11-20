@@ -113,9 +113,9 @@
   .Footer__link:nth-child(2) {
     margin-bottom: 0;
   }
-}
 
 .Footer__link-text {
   font-size: 12px;
   line-height: 15px;
+}
 }

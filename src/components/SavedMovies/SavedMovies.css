@@ -1,5 +1,5 @@
 .SavedMovies {
-  height: 626px;
+  min-height: 626px;
 }
 
 .SavedMovies__empty-place {

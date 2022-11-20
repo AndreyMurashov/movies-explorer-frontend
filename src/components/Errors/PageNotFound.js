@@ -5,7 +5,7 @@ import "./Errors.css";
 
 function PageNotFound(props) {
   const history = useHistory();
-
+  console.log(props.messageText);
   return (
     <div className="Errors">
       <h3 className="Errors__code">404</h3>

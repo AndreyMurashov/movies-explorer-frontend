@@ -1,13 +1,22 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import { filmsList } from "../../../utils/tempDB/films";
 
 function MoviesCardList(props) {
   return (
     <section className="MoviesCardList">
-      {filmsList.map((card) => {
-        return <MoviesCard key={card._id} card={card} />;
-      })}
+      {props.cards.length > 0
+        ? props.cards.map((card) => {
+            return (
+              <MoviesCard
+                key={card._id}
+                card={card}
+                deleteCard={props.deleteCard}
+              />
+            );
+          })
+        : props.messageText && (
+            <p className="MoviesCardList__nothing">{props.messageText}</p>
+          )}
     </section>
   );
 }

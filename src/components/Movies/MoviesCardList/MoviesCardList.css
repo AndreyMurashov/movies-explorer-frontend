@@ -30,10 +30,28 @@
   line-height: 15px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .MoviesCardList__continue-button:hover {
   opacity: 0.8;
+}
+
+.MoviesCardList__nothing {
+  position: fixed;
+  width: 250px;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 5px 5px 5px black;
+  color: #ee3465;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  padding: 15px;
 }
 
 @media screen and (max-width: 1279px) {
