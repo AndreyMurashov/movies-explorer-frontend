@@ -46,5 +46,5 @@
 
 # Ссылки:
 - макет дипломной работы - https://disk.yandex.ru/d/08t5cO3tJrU0gQ
-PULL REQUEST: https://github.com/AndreyMurashov/movies-explorer-frontend/pull/4
-На сервере: https://murashoff.nomoredomains.icu/
+- PULL REQUEST: https://github.com/AndreyMurashov/movies-explorer-frontend/pull/4
+- На сервере: https://murashoff.nomoredomains.icu/
