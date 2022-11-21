@@ -22,8 +22,7 @@
   Получение списка фильмов, сохранение и удаление фильмов в избранное.
 
 ## Установка и запуск проекта:
-PULL REQUEST:
-https://github.com/AndreyMurashov/movies-explorer-frontend/pull/2
+PULL REQUEST: https://github.com/AndreyMurashov/movies-explorer-frontend/pull/4
 
 Клонировать репозиторий:
 
