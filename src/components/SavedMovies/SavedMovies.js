@@ -17,7 +17,7 @@ function SavedMovies(props) {
   const [foundMovies, setFoundMovies] = useState([]);
   const [messageText, setMessageText] = useState("");
   let shortSwitcher;
-
+ 
   const getDefaultSavedFilms = () => {
     mainApi
       .getMoviesLocal()

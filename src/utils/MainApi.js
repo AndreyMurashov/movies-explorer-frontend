@@ -91,46 +91,6 @@ class MainApi {
       })
     }).then(this._parseResponse);
   }
-
-  // Получение токена из бекенда
-  getUserToken(token) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
-      }
-    }).then(this._parseResponse);
-  }
-
-  getContent = (token) => {
-    return fetch(`${this._baseUrl}/users/me`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
-      }
-    }).then(this._parseResponse);
-  };
-
-  // Обновление токена
-  updateTokenLocal() {
-    this._headers.Authorization = `Bearer ${localStorage.getItem("jwt")}`;
-  }
-
-  // Получение токена из хранилища
-  getTokenLocal() {
-    return localStorage.getItem("jwt");
-  }
-
-  // Сохранение токена в хранилище
-  saveTokenLocal(token) {
-    localStorage.setItem("jwt", token);
-  }
-
-  //Удаление токена
-  removeTokenLocal() {
-    localStorage.removeItem("jwt");
-  }
 }
 
 const mainApi = new MainApi({

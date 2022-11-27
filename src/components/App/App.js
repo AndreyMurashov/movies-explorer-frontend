@@ -2,7 +2,6 @@ import {
   Route,
   Switch,
   useHistory,
-  withRouter
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CurrentUserContext from "../../context/CurrentUserContext";
@@ -32,7 +31,13 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isPopupMenu, setIsPopupMenu] = useState(false);
   const [messageText, setMessageText] = useState("");
+  const [userData, setUserData] = useState({});
   const history = useHistory();
+
+  useEffect(() => {
+    checkToken();
+  }, []);
+
 
   useEffect(() => {
     if (loggedIn) {
@@ -41,6 +46,7 @@ function App() {
         .then((userData) => {
           setLoggedIn(true);
           setCurrentUser(userData);
+          history.push("/movies");
         })
         .catch((err) => {
           console.log(`Ошибка ${err}`);
@@ -59,10 +65,9 @@ function App() {
   };
 
   // Получение данных пользователя
-  function getUserInfo(userID) {
-    // const { _id } = user;
-    mainApi
-      .getCurrentUserInfo(userID)
+  function getUserInfo() {
+      mainApi
+      .getCurrentUserInfo()
       .then((userData) => {
         setLoggedIn(true);
         setCurrentUser(userData);
@@ -96,15 +101,13 @@ function App() {
     mainApi
       .loginExistingUser(email, password)
       .then((user) => {
-        localStorage.setItem("jwt", user.token);
-        setLoggedIn(true);
+        localStorage.setItem("jwt", user.token); 
+        getUserInfo();
         checkToken();
-        const userID = user._id;
-        getUserInfo(userID);
         window.location.reload();
+        
       })
-
-      .catch((err) => {
+       .catch((err) => {
         if (err === 401) {
           setMessageText(authError);
         } else {
@@ -120,6 +123,12 @@ function App() {
     localStorage.removeItem("jwt");
     setLoggedIn(false);
     setMessageText('');
+    localStorage.removeItem("foundMovies");
+    localStorage.removeItem("shortFilms");
+    localStorage.removeItem("inputText");
+    setCurrentUser({});
+    setUserData({});
+    setMessageText("");
     history.push("/");
   }
 
@@ -148,23 +157,20 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token) {
       mainApi
-        .getContent(token)
+        .getCurrentUserInfo()
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            history.push("/movies");
           }
         })
         .catch((err) => {
           setMessageText(tokenError);
           console.log(`Ошибка ${err}`);
         });
-    }
-  };
+    };
+    };
 
-  useEffect(() => {
-    checkToken();
-  }, []);
+    
 
   return (
     <div className="App">
@@ -189,6 +195,7 @@ function App() {
           <ProtectedRoute
             path="/profile"
             loggedIn={loggedIn}
+            userData={userData}
             openPopupMenu={handleOpenPopupMenu}
             component={Profile}
             signOut={signOut}
@@ -208,9 +215,13 @@ function App() {
             <Main loggedIn={loggedIn} openPopupMenu={handleOpenPopupMenu} />
           </Route>
 
-          <Route path="/*">
-            <PageNotFound messageText={notFoundError} />
-          </Route>
+          <ProtectedRoute
+            path="/*"
+            loggedIn={loggedIn}
+            component={PageNotFound}
+            messageText={notFoundError}
+          />
+
         </Switch>
       </CurrentUserContext.Provider>
 
@@ -219,4 +230,4 @@ function App() {
   );
 }
 
-export default withRouter(App);
+export default App;

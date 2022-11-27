@@ -5,7 +5,12 @@ import { useState, useEffect } from "react";
 function SearchForm(props) {
   const [keywords, setKeywords] = useState();
   const [isSearchText, setIsSearchText] = useState(true);
-  const [rangeValue, setRangeValue] = useState("");
+  const [rangeValue, setRangeValue] = useState("0");
+
+  useEffect(() => {
+    setRangeValue(localStorage.getItem("shortFilms"));
+    setKeywords(localStorage.getItem("inputText"));
+  }, []);
 
   function changeValue(e) {
     setKeywords(e.target.value);
@@ -19,8 +24,9 @@ function SearchForm(props) {
 
   const shortFilms = (e) => {
     setRangeValue(e.target.value);
-    console.log(rangeValue);
-  };
+    let range = e.target.value;
+    props.findFilms(range, keywords);
+   };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,18 +34,9 @@ function SearchForm(props) {
       setIsSearchText(false);
     } else {
       setIsSearchText(true);
-      props.findFilms(rangeValue, keywords);
+      props.findFilms(rangeValue, keywords); 
     }
   }
-
-  useEffect(() => {
-    props.findFilms(rangeValue, keywords);
-  }, [rangeValue]);
-
-  useEffect(() => {
-    setRangeValue(localStorage.getItem("shortFilms"));
-    setKeywords(localStorage.getItem("inputText"));
-  }, []);
 
   return (
     <section className="SearchForm">
@@ -81,16 +78,30 @@ function SearchForm(props) {
         )}
 
         <fieldset className="SearchForm__short-range">
+
+        {!keywords ? (
           <input
-            className="SearchForm__range"
-            type="range"
-            min="0"
-            max="1"
-            step="1"
-            defaultValue={rangeValue}
-            id="short-films"
-            onChange={shortFilms}
+          className="SearchForm__range"
+          type="range"
+          min="0"
+          max="1"
+          step="1"
+          disabled
           />
+        ) : (
+          <input
+          className="SearchForm__range"
+          type="range"
+          min="0"
+          max="1"
+          step="1"
+          defaultValue={rangeValue}
+          id="short-films"
+          onChange={shortFilms}
+          />
+         )}; 
+
+             
           <label className="SearchForm__label" htmlFor="short-films">
             Короткометражки
           </label>

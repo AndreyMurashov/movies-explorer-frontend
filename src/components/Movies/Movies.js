@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import moviesApi from "../../utils/MoviesApi";
 import mainApi from "../../utils/MainApi";
+import { moviesError } from "../../components/Errors/Errors";
 import CurrentUserContext from "../../context/CurrentUserContext";
 const MoviesCardList = lazy(() => import("./MoviesCardList/MoviesCardList"));
 let keywords;
@@ -13,23 +14,22 @@ let isFindingFilms = [];
 
 function Movies(props) {
   const currentUser = useContext(CurrentUserContext);
-  const [shortSwitcher, setShortSwitcher] = useState();
-  const [rangeValue, setRangeValue] = useState("0");
   const [savedFilms, setSavedFilms] = useState([]);
   const [movies, setMovies] = useState([]);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   const [moreCards, setMoreCards] = useState(0);
   const [messageText, setMessageText] = useState("");
+  let shortSwitcher;
 
   // Получение глобального списка фильмов, списка короткометражек и сохранение списка, ключевых слов и состояния переключателя в хранилище
-  function searchMovie(inputText, shortSwitcher, rangeValue) {
+  function searchMovie(inputText, shortSwitcher) {
     moviesApi
       .getMoviesInfo()
       .then((movies) => {
         const searchedMovies = movies.filter((item) =>
           item.nameRU.toLowerCase().includes(inputText.toLowerCase())
         );
-        const foundMovies = shortSwitcher
+        const foundMovies = (shortSwitcher === "1")
           ? searchedMovies.filter((item) => item.duration <= 40)
           : searchedMovies;
         if (foundMovies.length < 1) {
@@ -37,25 +37,19 @@ function Movies(props) {
         }
         localStorage.setItem("foundMovies", JSON.stringify(foundMovies));
         localStorage.setItem("inputText", inputText);
-        localStorage.setItem("shortFilms", rangeValue);
+        localStorage.setItem("shortFilms", shortSwitcher);
         formatingList();
       })
       .catch((err) => {
-        // setMessageText(moviesError);
+        setMessageText(moviesError);
         console.log(`Ошибка ${err}`);
       });
   }
 
     // Получение нового списка фильмов, отфильтрованного по ключевым словам
   const findFilms = (range, keywords) => {
-    setRangeValue(range);
-
-    if (range === "0") {
-      setShortSwitcher(false);
-    } else if (range === "1") {
-      setShortSwitcher(true);
-    }
-    searchMovie(keywords, shortSwitcher, rangeValue);
+       shortSwitcher = range;
+        searchMovie(keywords, shortSwitcher);
   };
 
   // Показ карточек в зависимости от разрешения экрана
