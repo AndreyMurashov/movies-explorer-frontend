@@ -1,0 +1,8 @@
+.SavedMovies {
+  min-height: 626px;
+}
+
+.SavedMovies__empty-place {
+  height: 140px;
+  background-color: #202020;
+}

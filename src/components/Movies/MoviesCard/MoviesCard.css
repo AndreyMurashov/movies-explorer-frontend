@@ -1,0 +1,128 @@
+.MoviesCard {
+  width: 364px;
+  height: 281px;
+  box-sizing: border-box;
+  background-color: #222222;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+.MoviesCard__image {
+  display: block;
+  max-width: 100%;
+  height: 203px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.MoviesCard__capture {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MoviesCard__title {
+  width: 290px;
+  height: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+  margin: 16px 12px 17px 16px;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.MoviesCard__like {
+  width: 30px;
+  height: 30px;
+  margin-right: 16px;
+  background-color: #222222;
+  border: none;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.MoviesCard__like:hover {
+  opacity: 0.7;
+}
+
+.MoviesCard__duration {
+  height: 13px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  color: #8b8b8b;
+  margin: 0 0 16px 16px;
+}
+
+.MoviesCard__like-icon {
+  width: 14px;
+  height: 12px;
+}
+
+@media screen and (max-width: 1279px) {
+  .MoviesCard {
+    width: 339px;
+    height: 262px;
+  }
+
+  .MoviesCard__image {
+    max-width: 100%;
+    height: 190px;
+  }
+
+  .MoviesCard__title {
+    width: 260px;
+    height: 16px;
+    margin: 14px 12px 15px 14px;
+  }
+
+  .MoviesCard__like {
+    margin-right: 14px;
+  }
+
+  .MoviesCard__duration {
+    height: 13px;
+    margin: 0 0 14px 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .MoviesCard {
+    width: 300px;
+    height: 237px;
+  }
+
+  .MoviesCard__image {
+    height: 168px;
+  }
+
+  .MoviesCard__title {
+    width: 240px;
+    height: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 14px 6px 14px 14px;
+  }
+
+  .MoviesCard__like {
+    margin-right: 10px;
+  }
+
+  .MoviesCard__duration {
+    height: 12px;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
