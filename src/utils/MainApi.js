@@ -94,7 +94,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "https://api.murashoff.nomoredomains.icu",
+  baseUrl: "https://api.avm-fond.store",
   headers: {
     Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json"
