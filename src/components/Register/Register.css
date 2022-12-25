@@ -16,6 +16,10 @@
   margin: auto;
 }
 
+.Register__button_disabled {
+  background-color: gray;
+}
+
 .Register__logo {
   display: block;
   width: 38px;
@@ -25,7 +29,7 @@
 }
 
 .Register__logo:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .Register__logo-round {
@@ -78,7 +82,7 @@
 .Register__input {
   background-color: #202020;
   width: 396px;
-  height: 17px;
+  min-height: 17px;
   margin-bottom: 10px;
   padding: 0;
   font-style: normal;
@@ -89,12 +93,8 @@
   border: none;
 }
 
-.Register__input::placeholder {
-  color: white;
-}
-
 .Register__validation {
-  height: 12px;
+  min-height: 12px;
   padding: 0;
   margin: 0;
   margin-bottom: 6px;
@@ -105,13 +105,9 @@
   color: #ee3465;
 }
 
-.Register__validation_hidden {
-  visibility: hidden;
-}
-
 .Register__buttons {
   padding: 0;
-  margin: 135px auto 31px auto;
+  margin: 0 auto 31px auto;
   border: none;
 }
 
@@ -132,8 +128,12 @@
   cursor: pointer;
 }
 
+.Register__button_disabled {
+  background-color: #8b8b8b;
+}
+
 .Register__button:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .Register__text {
@@ -142,6 +142,13 @@
   line-height: 17px;
   text-align: center;
   color: #8b8b8b;
+}
+
+.Register__error {
+  min-height: 19px;
+  color: #ee3465;
+  margin-top: 100px;
+  margin-bottom: 0;
 }
 
 .Regisler__link {
@@ -155,7 +162,7 @@
 }
 
 .Regisler__link:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 1279px) {
@@ -196,7 +203,7 @@
 
   .Register__buttons {
     padding: 0;
-    margin: 222px auto 31px auto;
+    margin: 0 auto 31px auto;
     border: none;
   }
 
@@ -204,7 +211,6 @@
     width: 260px;
     font-size: 12px;
     line-height: 15px;
-
   }
 
   .Register__text {
@@ -215,5 +221,9 @@
   .Regisler__link {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .Register__error {
+    margin-top: 190px;
   }
 }

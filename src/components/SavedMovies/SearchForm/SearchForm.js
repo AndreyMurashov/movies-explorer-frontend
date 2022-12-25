@@ -7,11 +7,6 @@ function SearchForm(props) {
   const [isSearchText, setIsSearchText] = useState(true);
   const [rangeValue, setRangeValue] = useState("0");
 
-  useEffect(() => {
-    setRangeValue(localStorage.getItem("shortFilms"));
-    setKeywords(localStorage.getItem("inputText"));
-  }, []);
-
   function changeValue(e) {
     setKeywords(e.target.value);
     if (!setKeywords) {
@@ -24,9 +19,8 @@ function SearchForm(props) {
 
   const shortFilms = (e) => {
     setRangeValue(e.target.value);
-    let range = e.target.value;
-    props.findFilms(range, keywords);
-   };
+    console.log(rangeValue);
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -34,9 +28,13 @@ function SearchForm(props) {
       setIsSearchText(false);
     } else {
       setIsSearchText(true);
-      props.findFilms(rangeValue, keywords); 
+      props.findFilms(rangeValue, keywords);
     }
   }
+
+  useEffect(() => {
+    props.findFilms(rangeValue, keywords);
+  }, [rangeValue]);
 
   return (
     <section className="SearchForm">
@@ -45,7 +43,7 @@ function SearchForm(props) {
           <input
             className="SearchForm__input"
             placeholder="Нужно ввести ключевое слово"
-            defaultValue={keywords}
+            value={keywords}
             onChange={changeValue}
             style={{ border: " 1px solid red" }}
             required
@@ -57,7 +55,7 @@ function SearchForm(props) {
             maxLength="30"
             type="text"
             placeholder="Фильм"
-            defaultValue={keywords}
+            value={keywords}
             onChange={changeValue}
             required
           />
@@ -78,30 +76,17 @@ function SearchForm(props) {
         )}
 
         <fieldset className="SearchForm__short-range">
-
-        {!keywords ? (
           <input
-          className="SearchForm__range"
-          type="range"
-          min="0"
-          max="1"
-          step="1"
-          disabled
+            className="SearchForm__range"
+            type="range"
+            value={rangeValue}
+            min="0"
+            max="1"
+            step="1"
+            // defaultValue={rangeValue}
+            id="short-films"
+            onChange={shortFilms}
           />
-        ) : (
-          <input
-          className="SearchForm__range"
-          type="range"
-          min="0"
-          max="1"
-          step="1"
-          defaultValue={rangeValue}
-          id="short-films"
-          onChange={shortFilms}
-          />
-         )}; 
-
-             
           <label className="SearchForm__label" htmlFor="short-films">
             Короткометражки
           </label>

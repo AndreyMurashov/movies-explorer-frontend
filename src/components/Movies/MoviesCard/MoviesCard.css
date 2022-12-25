@@ -11,6 +11,8 @@
   display: block;
   max-width: 100%;
   height: 203px;
+  cursor: pointer;
+  object-fit: cover;
 }
 
 .MoviesCard__capture {
@@ -32,6 +34,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .MoviesCard__like {
@@ -40,6 +43,7 @@
   margin-right: 16px;
   background-color: #222222;
   border: none;
+  cursor: pointer;
   cursor: pointer;
 }
 
@@ -55,6 +59,8 @@
   line-height: 13px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  border: none;
   padding: 0;
   color: #8b8b8b;
   margin: 0 0 16px 16px;

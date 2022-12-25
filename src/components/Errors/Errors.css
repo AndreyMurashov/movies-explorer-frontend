@@ -26,7 +26,6 @@
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-
   color: #ffffff;
 }
 
@@ -42,11 +41,12 @@
   text-align: center;
   color: #4285f4;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .Errors__return:hover {
-  opacity: .7;
-} 
+  opacity: 0.7;
+}
 
 @media screen and (max-width: 1279px) {
   .Errors {
@@ -66,7 +66,6 @@
     margin: 0 auto 10px auto;
     font-size: 80px;
     line-height: 97px;
-
   }
 
   .Errors__text {
@@ -79,4 +78,24 @@
     font-size: 12px;
     line-height: 15px;
   }
+}
+
+.Errors__nothing {
+  position: fixed;
+  width: 250px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 5px 5px 5px black;
+}
+
+.Errors__nothing-text {
+  color: #ee3465;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 47px;
+  text-align: center;
+  vertical-align: center;
 }
